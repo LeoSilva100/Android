@@ -1,16 +1,46 @@
+
 package com.example.aluno.cursoandroid;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class CursoAndroid extends AppCompatActivity {
 
+    Button mButton;
+
+    EditText mEdit1;
+    EditText mEdit2;
+
+    /** Called when the activity is first created. */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState){
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_curso_android);
+
+        mButton = (Button)findViewById(R.id.button);
+
+        mEdit1 = (EditText)findViewById(R.id.editText1);
+        String edit1 = mEdit1.getText().toString();
+
+        mEdit2 = (EditText)findViewById(R.id.editText2);
+        String edit2 = mEdit2.getText().toString();
+
+        int edit1_int = 0;
+        edit1_int = Integer.parseInt(edit1);
+
+        int edit2_int = 0;
+        edit2_int = Integer.parseInt(edit2);
+        // Aqui agora temos os números colocados!
+
     }
 
     @Override
