@@ -10,8 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class CursoAndroid extends AppCompatActivity {
+
+    int edit1_int;
+    int edit2_int;
 
     Button mButton;
 
@@ -28,18 +32,46 @@ public class CursoAndroid extends AppCompatActivity {
 
         mButton = (Button)findViewById(R.id.button);
 
-        mEdit1 = (EditText)findViewById(R.id.editText1);
-        String edit1 = mEdit1.getText().toString();
+        mButton.setOnClickListener(new View.OnClickListener() {
 
-        mEdit2 = (EditText)findViewById(R.id.editText2);
-        String edit2 = mEdit2.getText().toString();
+            @Override
+            public void onClick(View view) {
 
-        int edit1_int = 0;
-        edit1_int = Integer.parseInt(edit1);
+                mEdit1 = (EditText) findViewById(R.id.editText1);
 
-        int edit2_int = 0;
-        edit2_int = Integer.parseInt(edit2);
-        // Aqui agora temos os números colocados!
+                if (mEdit1 == null) {
+                    mEdit1.setText("0");
+                }
+
+                mEdit2 = (EditText) findViewById(R.id.editText2);
+
+                if (mEdit2 == null) {
+                    mEdit2.setText("0");
+                }
+
+                if (mEdit1.getText().toString().length() > 0) {
+                    edit1_int = Integer.valueOf(mEdit1.getText().toString().trim());
+                } else {
+                    edit1_int = 0;
+                }
+
+                if (mEdit2.getText().toString().length() > 0) {
+                    edit2_int = Integer.valueOf(mEdit2.getText().toString().trim());
+                } else {
+                    edit2_int = 0;
+                }
+
+                float soma = 0;
+
+                soma = edit1_int + edit2_int;
+
+                TextView textViewScreen = (TextView) findViewById(R.id.textView2);
+
+                String result = String.valueOf(soma);
+
+                textViewScreen.setText(result);
+            }
+        });
 
     }
 
