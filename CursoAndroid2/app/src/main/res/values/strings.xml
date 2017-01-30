@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CursoAndroid</string>
+    <string name="meu_nome">Walef</string>
+    <string name="sobrenome"> Alves</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="prox_tela">mostrar tela 2</string>
+    <string name="tela2">Bem vindo a tela 2</string>
+    <string name="voltar">VOLTAR</string>
+</resources>
