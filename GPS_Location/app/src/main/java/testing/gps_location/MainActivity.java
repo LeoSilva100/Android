@@ -1,11 +1,13 @@
 package testing.gps_location;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -23,19 +25,22 @@ public class MainActivity extends AppCompatActivity {
     private TextView t;
     private LocationManager locationManager;
     private LocationListener listener;
-
+    boolean GpsStatus;
+    Intent intent1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        CheckGpsStatus();
 
         t = (TextView) findViewById(R.id.textView);
         b = (Button) findViewById(R.id.button);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-
 
         listener = new LocationListener() {
             @Override
@@ -56,13 +61,26 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onProviderDisabled(String s) {
-
                 Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
                 startActivity(i);
             }
         };
 
         configure_button();
+    }
+
+    public void CheckGpsStatus(){
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        GpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+        if(GpsStatus == false)
+        {
+            intent1 = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(intent1);
+        }
+
     }
 
     @Override
