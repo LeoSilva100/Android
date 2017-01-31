@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+                t.setText(" ");
                 t.append("\n " + location.getLongitude() + " " + location.getLatitude());
             }
 
