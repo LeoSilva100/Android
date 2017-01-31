@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">CursoAndroid</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name"> Calculadora Básica </string>
+    <string name="action_settings"> Configurações </string>
 </resources>
