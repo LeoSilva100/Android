@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class CursoAndroid extends AppCompatActivity {
 
     int edit1_int;
@@ -39,23 +41,23 @@ public class CursoAndroid extends AppCompatActivity {
 
                 mEdit1 = (EditText) findViewById(R.id.editText1);
 
-                if (mEdit1 == null) {
+                if (mEdit1==null) {
                     mEdit1.setText("0");
                 }
 
                 mEdit2 = (EditText) findViewById(R.id.editText2);
 
-                if (mEdit2 == null) {
+                if (mEdit2==null) {
                     mEdit2.setText("0");
                 }
 
-                if (mEdit1.getText().toString().length() > 0) {
+                if (mEdit1.getText().toString().length()>0 && StringUtils.isNumeric(mEdit1.getText().toString())) {
                     edit1_int = Integer.valueOf(mEdit1.getText().toString().trim());
                 } else {
                     edit1_int = 0;
                 }
 
-                if (mEdit2.getText().toString().length() > 0) {
+                if (mEdit2.getText().toString().length()>0 && StringUtils.isNumeric(mEdit2.getText().toString())) {
                     edit2_int = Integer.valueOf(mEdit2.getText().toString().trim());
                 } else {
                     edit2_int = 0;
